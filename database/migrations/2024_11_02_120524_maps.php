@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create("maps", function (Blueprint $table) {
+        Schema::create('maps', function (Blueprint $table) {
             $table->id();
-            $table->string("name")->unique();
-            $table->string("creator");
-            $table->string("description");
-            $table->string("type");
-            $table->integer("checkpoints");
+            $table->string('name')->unique();
+            $table->string('creator');
+            $table->string('description');
+            $table->string('type');
+            $table->integer('checkpoints');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
         });

@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create("players", function (Blueprint $table) {
+        Schema::create('players', function (Blueprint $table) {
             $table->id();
-            $table->string("login")->unique();
-            $table->string("password");
-            $table->string("last_ip")->nullable();
+            $table->string('login')->unique();
+            $table->string('password');
+            $table->string('last_ip')->nullable();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
 

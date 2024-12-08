@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string("discord_access_token");
-            $table->integer("discord_expire_token");
-            $table->string("discord_refresh_token");
-            $table->foreignId("player_id")->nullable(true)->constrained();
+            $table->string('discord_access_token');
+            $table->integer('discord_expire_token');
+            $table->string('discord_refresh_token');
+            $table->foreignId('player_id')->nullable(true)->constrained();
             $table->rememberToken();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
