@@ -14,9 +14,10 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('discord_access_token');
-            $table->integer('discord_expire_token');
+            $table->integer('discord_token_expire');
             $table->string('discord_refresh_token');
             $table->foreignId('player_id')->nullable(true)->constrained();
+            $table->foreignId('discord_user_id')->nullable(false)->constrained();
             $table->rememberToken();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
@@ -38,7 +39,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('users');
-        Schema::dropIfExists('password_reset_tokens');
         Schema::dropIfExists('sessions');
     }
 };
