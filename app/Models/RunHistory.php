@@ -10,11 +10,11 @@ class RunHistory extends Model
 
     public function map()
     {
-        return $this->belongsTo('Map');
+        return $this->belongsTo(Map::class);
     }
 
     public function player()
     {
-        return $this->belongsTo('Player');
+        return $this->belongsTo(Player::class);
     }
 }

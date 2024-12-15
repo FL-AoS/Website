@@ -14,15 +14,19 @@ class HighscoreController
             ->where('name', '=', $map_name)
             ->firstOrFail();
 
-        return RunHistory::query()
+        $query = RunHistory::query()
             ->select([
                 DB::raw('player_id'),
                 DB::raw('MIN(map_id) as map_id'),
                 DB::raw('MIN(time) as run'),
             ])
+            ->with("map:id,name,creator,description,type")
+            ->with("player:id,login")
             ->where('map_id', '=', $map->id)
             ->orderBy('time')
             ->groupBy('player_id')
             ->get();
+
+        return $query->makeHidden(["player_id","map_id"]);
     }
 }
