@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\DiscordUser;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Support\Facades\Auth;
 
 class DiscordController
 {
@@ -94,8 +95,10 @@ class DiscordController
             $user_model->save();
 
         }
+
+        Auth::login($user_model);
         
 
-        return response()->json($user_infos);
+        return redirect("/");
     }
 }

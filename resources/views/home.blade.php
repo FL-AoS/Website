@@ -6,6 +6,9 @@
 	<title>a</title>
 </head>
 <body>
+	@auth
+	<p>wassup mf</p>
+	@endauth
 	<p>a</p>
 </body>
 </html>
