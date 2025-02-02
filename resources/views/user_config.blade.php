@@ -16,11 +16,22 @@
 		<h1>If you are logging for the first time and you had an account before, please do not create a new account and contact us on our discord: https://discord.gg/BJkMA49UQt</h1>
 	@endif
 
-	<form>
+	@if($errors->any())
+		 <div id="error_message">
+			<ul>
+				@foreach ($errors->all() as $error)
+				<li>{{ $error }}</li>
+				@endforeach
+			</ul>
+		 </div>
+	@endif
+	<form action="/api/update_login" method="POST">
+		@csrf
 		<label for="config_login">Login:</label>
-		<input id="config_login" type="text" name="login"><br>
+		<input id="config_login" type="text" name="login" value="{{old("login")}}"><br>
 		<label for="config_password">Password:</label>
 		<input id="config_password" type="password" name="password">
+		<input type="submit" value="Submit">
 	</form>
 	<input type="checkbox" onclick="showpassword()">Show Password
 

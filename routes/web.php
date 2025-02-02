@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HighscoreController;
 use App\Http\Controllers\DiscordController;
+use App\Http\Controllers\PlayerController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -20,4 +21,6 @@ Route::prefix('/api')->group(function () {
     Route::get('/highscores/{map_name}', [HighscoreController::class, 'getScoreByMapName']);
 
     Route::get('/discord/authorization', [DiscordController::class, 'authorize']);
+
+    Route::post('/update_login', [PlayerController::class, 'update_infos']);
 });
