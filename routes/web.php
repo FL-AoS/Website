@@ -3,9 +3,17 @@
 use App\Http\Controllers\HighscoreController;
 use App\Http\Controllers\DiscordController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
     return view('home');
+});
+
+Route::get('/user_config', function () {
+    if (Auth::check())
+        return view('user_config');
+
+    return redirect("/");
 });
 
 Route::prefix('/api')->group(function () {

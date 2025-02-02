@@ -21,6 +21,23 @@ class DiscordController
         curl_close($curl_tk);
     }
 
+    private function joinDiscord(string $access_token, string $user_id) {
+        error_log($user_id);
+        error_log($access_token);
+        $curl_join = curl_init("https://discord.com/api/guilds/906152369438486579/members/".$user_id);
+        curl_setopt($curl_join, CURLOPT_CUSTOMREQUEST, "PUT");
+
+        $body = [
+            'access_token' => $access_token
+        ];
+        $json = json_encode($body);
+        curl_setopt($curl_join, CURLOPT_POSTFIELDS, $json);
+        curl_setopt($curl_join, CURLOPT_HTTPHEADER, array("Content-Type: application/json", "Authorization: Bot ".env("DISCORD_BOT_TOKEN")));
+
+        curl_exec($curl_join);
+        curl_close($curl_join);
+    }
+
     public function authorize(Request $request)
     {
         $code = $request->input("code");
@@ -65,6 +82,7 @@ class DiscordController
         }
 
         $user_infos = json_decode($sv);
+        $this->joinDiscord($discord_infos->access_token, $user_infos->id);
 
         try {
             $discord_model = DiscordUser::where("discord_id", $user_infos->id)->firstOrFail();

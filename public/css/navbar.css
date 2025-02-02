@@ -1,0 +1,30 @@
+#prk_navbar ul {
+	list-style-type: none;
+	border-bottom: solid;
+	border-color: #7D7D7D;
+	border-width: 0.2vw;
+	width: 94%;
+	padding: 1vw;
+	margin: auto;
+}
+
+#prk_navbar ul li {
+	display: inline-block;
+	font-size: 1.5vw;
+	padding: 0px 20px;
+}
+
+#prk_navbar ul li a {
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+#prk_navbar #discordlogo {
+	width: 2.8vw;
+	float: right;
+	border-radius: 100%;
+}
+
+#discordlogo:hover {
+	cursor: pointer;
+}
