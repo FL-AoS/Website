@@ -3,6 +3,7 @@
 use App\Http\Controllers\HighscoreController;
 use App\Http\Controllers\DiscordController;
 use App\Http\Controllers\PlayerController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,6 +19,8 @@ Route::get('/user_config', function () {
 });
 
 Route::prefix('/api')->group(function () {
+    Route::get('/user/{id}', [UserController::class, 'getUserInfosById']);
+
     Route::get('/highscores/{map_name}', [HighscoreController::class, 'getScoreByMapName']);
 
     Route::get('/discord/authorization', [DiscordController::class, 'authorize']);
