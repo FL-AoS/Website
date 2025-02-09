@@ -20,6 +20,8 @@ Route::get('/user_config', function () {
 
 Route::prefix('/api')->group(function () {
     Route::get('/user/{id}', [UserController::class, 'getUserInfosById']);
+    Route::get('/user/player/{player_id}', [UserController::class, 'getUserInfosByPlayerId']); // this is ugly, i need to think in a better structure
+    Route::get('/user/player/name/{player_name}', [UserController::class, 'getUserInfosByPlayerName']);
 
     Route::get('/highscores/{map_name}', [HighscoreController::class, 'getScoreByMapName']);
 
