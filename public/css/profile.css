@@ -1,0 +1,35 @@
+body {
+	background-color: #252525;
+	color: #ffffff;
+	font-family: "Inter", serif;
+	font-style: normal;
+}
+
+#profile {
+	background-clip: content-box;
+	background-color: #181818;
+	border-radius: 1.5vw;
+	padding: 20px;
+	width: 92vw;
+	height: 85vh;
+	margin: auto;
+}
+
+#discordpic {
+	padding: 15px;
+	width: 10vw;
+	border-radius: 100%;
+	position: absolute;
+}
+
+#profile h1 {
+	position: absolute;
+	margin: 2vw 12vw;
+	font-size: 2.2vw;
+}
+
+#profile h2 {
+	position: absolute;
+	margin: 5vw 12vw;
+	font-size: 0.8vw;
+}

@@ -11,6 +11,8 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::get('/profile/{id}', [UserController::class, 'handleProfile']);
+
 Route::get('/user_config', function () {
     if (Auth::check())
         return view('user_config');
@@ -24,6 +26,7 @@ Route::prefix('/api')->group(function () {
     Route::get('/user/player/name/{player_name}', [UserController::class, 'getUserInfosByPlayerName']);
 
     Route::get('/highscores/{map_name}', [HighscoreController::class, 'getScoreByMapName']);
+    Route::get('/highscores/player/{player_name}', [HighscoreController::class, 'getPlayerScoresByPlayerId']);
 
     Route::get('/discord/authorization', [DiscordController::class, 'authorize']);
 

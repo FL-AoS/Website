@@ -28,3 +28,7 @@ body {
 #current_highscore .pos {
 	width: 10%;
 }
+
+.clickable:hover {
+	cursor: pointer;
+}

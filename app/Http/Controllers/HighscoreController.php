@@ -29,4 +29,14 @@ class HighscoreController
 
         return $query->makeHidden(["player_id","map_id"]);
     }
+
+    public function getPlayerScoresByPlayerId(int $player_id) {
+        $query = RunHistory::query()
+            ->where("player_id", "=", $player_id)
+            ->with("map:id,name,creator,description,type")
+            ->orderBy("created_at", "desc")
+            ->get();
+
+        return $query->makeHidden(["map_id"]);
+    }
 }

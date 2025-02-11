@@ -82,8 +82,7 @@
 					if (prkIndex < 0)
 						return;
 
-					let highscoreRequest = await getHighscoreByName(servers[prkIndex].map);
-					let highscoreObj = JSON.parse(highscoreRequest.responseText);
+					let highscoreObj = await getHighscoreByMapName(servers[prkIndex].map);
 
 					let index, entry;
 					for ([index, entry] of highscoreObj.entries()) {
@@ -91,6 +90,13 @@
 						let pos = row.insertCell(-1);
 						let name = row.insertCell(-1);
 						let time = row.insertCell(-1);
+
+						let playerInfos = await getUserInfosByPlayerName(entry.player.login);
+
+						if (typeof playerInfos == "object" && playerInfos !== null) {
+							row.className = "clickable";
+							row.onclick = ()=>{window.location.href = "/profile/"+playerInfos.id};
+						}
 
 						pos.innerHTML = index+1;
 						name.innerHTML = entry.player.login;
