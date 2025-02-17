@@ -19,6 +19,7 @@ class HighscoreController
                 DB::raw('player_id'),
                 DB::raw('MIN(map_id) as map_id'),
                 DB::raw('MIN(time) as run'),
+                DB::raw("dense_rank() OVER (partition by map_id order by time asc) as rank")
             ])
             ->with("map:id,name,creator,description,type")
             ->with("player:id,login")
