@@ -33,3 +33,46 @@ body {
 	margin: 5vw 12vw;
 	font-size: 0.8vw;
 }
+
+#recent_scores {
+	position: absolute;
+	width: 80vw;
+	top: 19vw;
+	left: 10vw;
+	border-width: 5vw;
+	border-top-width: 1vw;
+	border-top-color: white;
+}
+
+#recent_scores table, th, td {
+	border: .1vw solid;
+	border-collapse: collapse;
+	font-size: 1.1vw;
+	padding: .2vw;
+	text-align: center;
+}
+
+#recent_scores caption {
+	font-size: 1.5vw;
+	padding: 0.5vw 0vw;
+}
+
+#recent_scores table {
+	width: 80vw;
+}
+
+#recent_scores .date {
+	width: 17%;
+}
+
+#recent_scores .pos {
+	width: 8%;
+}
+
+#recent_scores .death {
+	width: 8%;
+}
+
+#recent_scores .time {
+	width: 17%;
+}

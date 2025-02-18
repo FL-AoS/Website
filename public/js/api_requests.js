@@ -27,3 +27,21 @@ async function getUserInfosByPlayerName(name) {
 		request.send();
 	});
 }
+
+
+async function getUserHighscores(player_id) {
+	return new Promise(res => {
+		let request = new XMLHttpRequest();
+
+		request.open("GET", "/api/highscores/player/"+player_id, false);
+		request.onreadystatechange = () => {
+			try {
+				res(JSON.parse(request.responseText));
+			} catch {
+				res(null);
+			}
+		};
+
+		request.send();
+	});
+}
