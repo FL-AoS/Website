@@ -49,6 +49,6 @@ class PlayerController
         error_log($validated["login"]);
         error_log($request->input("password"));
 
-        return redirect("/user_config");
+        return redirect("/profile/".Auth::user()->id);
     }
 }

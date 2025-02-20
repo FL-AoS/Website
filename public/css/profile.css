@@ -76,3 +76,34 @@ body {
 #recent_scores .time {
 	width: 17%;
 }
+
+#config_icon {
+	position: relative;
+	fill: white;
+	width: 4vw;
+	top: 0;
+	left: 88vw;
+	cursor: pointer;
+}
+
+#config_menu {
+	display: none;
+	position: absolute;
+	z-index: 10;
+	background-color: #909090;
+	border-radius: 2%;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -100%);
+
+	width: auto;
+}
+
+#config_menu form {
+	padding: 0.5vw;
+	text-align: center;
+}
+
+#show_password {
+	margin-left: 1vw;
+}

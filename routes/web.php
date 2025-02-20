@@ -13,13 +13,6 @@ Route::get('/', function () {
 
 Route::get('/profile/{id}', [UserController::class, 'handleProfile']);
 
-Route::get('/user_config', function () {
-    if (Auth::check())
-        return view('user_config');
-
-    return redirect("/");
-});
-
 Route::prefix('/api')->group(function () {
     Route::get('/user/{id}', [UserController::class, 'getUserInfosById']);
     Route::get('/user/player/{player_id}', [UserController::class, 'getUserInfosByPlayerId']); // this is ugly, i need to think in a better structure

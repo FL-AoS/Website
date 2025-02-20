@@ -26,7 +26,7 @@
 			window.location.href = "https://discord.com/oauth2/authorize?client_id=1315347831812263968&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A8000%2Fapi%2Fdiscord%2Fauthorization&scope=identify+guilds.join"
 			@endguest
 			@auth
-			window.location.href = "/user_config"
+			window.location.href = "/profile/{{auth()->user()->id}}"
 			@endauth
 		});
 	</script>
