@@ -28,3 +28,20 @@ function parseMs(ms) {
 
 	return `${minutes}:${seconds}:${ms_t}`
 }
+
+function promiseRequest(url) {
+	return new Promise(res => {
+		let request = new XMLHttpRequest();
+
+		request.open("GET", url, false);
+		request.onreadystatechange = () => {
+			try {
+				res(JSON.parse(request.responseText));
+			} catch {
+				res(null);
+			}
+		};
+
+		request.send();
+	});
+}
