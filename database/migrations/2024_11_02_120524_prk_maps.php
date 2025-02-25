@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('maps', function (Blueprint $table) {
+        Schema::create('prk_maps', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
             $table->string('creator');

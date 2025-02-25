@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('checkpoint_history', function (Blueprint $table) {
+        Schema::create('prk_checkpoint_history', function (Blueprint $table) {
             $table->id();
             $table->integer('checkpoint');
             $table->unsignedBigInteger('run_id');
-            $table->foreign('run_id')->references('id')->on('run_history');
+            $table->foreign('run_id')->references('id')->on('prk_run_history');
             $table->integer('time');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();

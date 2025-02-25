@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class RunHistory extends Model
 {
-    protected $table = 'run_history';
+    protected $table = 'prk_run_history';
 
     public function map()
     {
