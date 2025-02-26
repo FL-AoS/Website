@@ -14,4 +14,8 @@ class User extends Authenticatable
     public function player() {
         return $this->hasOne(Player::class, "id", "player_id");
     }
+
+    public function roles() {
+        return $this->belongsToMany(Role::class, "role_users");
+    }
 }

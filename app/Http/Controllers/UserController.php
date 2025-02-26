@@ -20,6 +20,7 @@ class UserController
             ->select("id", "player_id", "discord_user_id")
             ->with("player:id,login")
             ->with("discord_user:id,username,global_name,discord_id,avatar_hash")
+            ->with("roles")
             ->get();
 
         return $q->makeHidden(["player_id", "discord_user_id"])[0];

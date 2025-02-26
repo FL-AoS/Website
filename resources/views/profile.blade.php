@@ -14,6 +14,11 @@
 		<img id="discordpic" src="https://cdn.discordapp.com/avatars/{{$infos->discord_user->discord_id}}/{{$infos->discord_user->avatar_hash}}.png?size=512">
 		<h1>{{$infos->player->login}}</h1>
 		<h2>{{$infos->discord_user->username}}</h2>
+		<div id="roles">
+			@foreach ($infos->roles as $role)
+				<div class="role_card" style="background-color: #{{dechex($role->color)}};"><p>{{$role->display_name}}</p></div>
+			@endforeach
+		</div>
 
 		<div id="recent_scores">
 			<table>

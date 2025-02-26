@@ -107,3 +107,20 @@ body {
 #show_password {
 	margin-left: 1vw;
 }
+
+#roles {
+	display: inline-flex;
+	font-size: 1vw;
+	height: 1.2vw;
+	gap: 0.3vw;
+	margin: 6.6vw 12vw;
+}
+
+.role_card {
+	border-radius: 5%;
+	padding-inline: 10px;
+}
+
+.role_card p {
+	display: inline;
+}
