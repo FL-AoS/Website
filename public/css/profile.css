@@ -78,11 +78,10 @@ body {
 }
 
 #config_icon {
-	position: relative;
+	position: absolute;
 	fill: white;
 	width: 4vw;
-	top: 0;
-	left: 88vw;
+	left: 91.5vw;
 	cursor: pointer;
 }
 
