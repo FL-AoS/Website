@@ -9,3 +9,7 @@ async function getUserInfosByPlayerName(name) {
 async function getUserHighscores(player_id) {
 	return await promiseRequest("/api/highscores/player/"+player_id);
 }
+
+async function getLeaderboardCategories() {
+	return await promiseRequest("/api/leaderboard/categories");
+}
