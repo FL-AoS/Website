@@ -4,31 +4,3 @@ body {
 	font-family: "Inter", serif;
 	font-style: normal;
 }
-
-#current_highscore table, th, td {
-	border: .1vw solid;
-	border-collapse: collapse;
-	font-size: 1vw;
-	margin: auto;
-}
-
-#current_highscore caption {
-	font-size: 1.5vw;
-	padding: 0.5vw 0vw;
-}
-
-#current_highscore table {
-	width: 50%;
-}
-
-#current_highscore .time {
-	width: 15%;
-}
-
-#current_highscore .pos {
-	width: 10%;
-}
-
-.clickable:hover {
-	cursor: pointer;
-}

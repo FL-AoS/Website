@@ -6,6 +6,7 @@
 	<title></title>
 
 	<link rel="stylesheet" type="text/css" href="/css/leaderboard.css">
+	<link rel="stylesheet" type="text/css" href="/css/highscore.css">
 
 	<script src="/js/api_requests.js"></script>
 	<script src="/js/utils.js"></script>
@@ -15,16 +16,16 @@
 	<form id="categories">
 		@csrf
 		<label for="gamemode">GameMode</label>
-		<select id="gamemodes" name="gamemode" onchange="updateSubCategories()"></select>
 		<label for="cat_1"></label>
-		<select id="cat_1" name="cat_1" onchange="handleChange()"></select>
 		<label for="cat_2"></label>
-		<select id="cat_2" name="cat_2" onchange="handleChange()"></select>
 		<label for="cat_3"></label>
+		<select id="gamemodes" name="gamemode" onchange="updateSubCategories()"></select>
+		<select id="cat_1" name="cat_1" onchange="handleChange()"></select>
+		<select id="cat_2" name="cat_2" onchange="handleChange()"></select>
 		<select id="cat_3" name="cat_3" onchange="handleChange()"></select>
 	</form>
 
-	<div id="highscores">
+	<div id="current_highscore">
 		<table>
 			<thead>
 				<tr>
@@ -40,7 +41,7 @@
 	<script type="text/javascript">
 		let formElement = document.getElementById("categories");
 		let gmSelectElement = document.getElementById("gamemodes");
-		let highscoreElem = document.querySelector("#highscores table tbody");
+		let highscoreElem = document.querySelector("#current_highscore table tbody");
 		let categories;
 
 		function cleanLeaderboard() {
