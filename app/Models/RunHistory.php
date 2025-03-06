@@ -17,4 +17,9 @@ class RunHistory extends Model
     {
         return $this->belongsTo(Player::class);
     }
+
+    public function checkpoint_history()
+    {
+        return $this->hasMany(CheckpointHistory::class, "run_id", "id");
+    }
 }

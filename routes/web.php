@@ -5,6 +5,7 @@ use App\Http\Controllers\DiscordController;
 use App\Http\Controllers\PlayerController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LeaderboardController;
+use App\Http\Controllers\RunController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -23,6 +24,8 @@ Route::prefix('/api')->group(function () {
 
     Route::get('/highscores/{map_name}', [HighscoreController::class, 'getScoreByMapName']);
     Route::get('/highscores/player/{player_name}', [HighscoreController::class, 'getPlayerScoresByPlayerId']);
+
+    Route::get('/run/{run_id}', [RunController::class, 'getRunInfo']);
 
     Route::get('/leaderboard/categories', [LeaderboardController::class, 'getLeaderboardCategories']);
 
