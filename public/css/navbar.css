@@ -1,4 +1,4 @@
-#prk_navbar ul {
+#fl_navbar ul {
 	list-style-type: none;
 	border-bottom: solid;
 	border-color: #7D7D7D;
@@ -8,18 +8,18 @@
 	margin: auto;
 }
 
-#prk_navbar ul li {
+#fl_navbar ul li {
 	display: inline-block;
 	font-size: 1.5vw;
 	padding: 0px 20px;
 }
 
-#prk_navbar ul li a {
+#fl_navbar ul li a {
 	color: #FFFFFF;
 	text-decoration: none;
 }
 
-#prk_navbar #discordlogo {
+#fl_navbar #discordlogo {
 	width: 2.8vw;
 	float: right;
 	border-radius: 100%;
