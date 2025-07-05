@@ -6,6 +6,7 @@ use App\Http\Controllers\PlayerController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LeaderboardController;
 use App\Http\Controllers\RunController;
+use App\Http\Controllers\DownloadsController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -16,6 +17,8 @@ Route::get('/', function () {
 Route::get('/leaderboard', [LeaderboardController::class, 'handleLeaderboard']);
 
 Route::get('/profile/{id}', [UserController::class, 'handleProfile']);
+
+Route::get('/demos/parkour/{name}', [DownloadsController::class, 'downloadParkourDemo']);
 
 Route::prefix('/api')->group(function () {
     Route::get('/user/{id}', [UserController::class, 'getUserInfosById']);
