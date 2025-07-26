@@ -20,6 +20,6 @@ class RunHistory extends Model
 
     public function checkpoint_history()
     {
-        return $this->hasMany(CheckpointHistory::class, "run_id", "id");
+        return $this->hasMany(CheckpointHistory::class, 'run_id', 'id');
     }
 }

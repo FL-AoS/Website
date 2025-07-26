@@ -6,7 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class RoleUser extends Model
 {
-    public function role() {
+    public function role()
+    {
         return $this->belongsTo(Role::class);
     }
 }

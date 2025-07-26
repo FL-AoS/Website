@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create("roles", function (Blueprint $table) {
+        Schema::create('roles', function (Blueprint $table) {
             $table->id();
-            $table->string("name")->unique();
-            $table->string("display_name");
-            $table->string("game_group"); // this is the in-game login group (admin/moderator/guard)
-            $table->integer("color");
+            $table->string('name')->unique();
+            $table->string('display_name');
+            $table->string('game_group'); // this is the in-game login group (admin/moderator/guard)
+            $table->integer('color');
         });
     }
 

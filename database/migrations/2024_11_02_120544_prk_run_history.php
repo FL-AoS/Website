@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('prk_run_history', function (Blueprint $table) {
             $table->id();
             $table->foreignId('player_id')->constrained();
-            $table->foreignId('map_id')->references('id')->on("prk_maps");
+            $table->foreignId('map_id')->references('id')->on('prk_maps');
             $table->string('demo_url')->nullable(true);
             $table->string('client_info')->nullable(true);
             $table->integer('time');

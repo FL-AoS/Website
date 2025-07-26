@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create("discord_users", function (Blueprint $table) {
+        Schema::create('discord_users', function (Blueprint $table) {
             $table->id();
-            $table->string("username");
-            $table->string("global_name");
-            $table->string("discord_id");
-            $table->string("avatar_hash");
-            
+            $table->string('username');
+            $table->string('global_name');
+            $table->string('discord_id');
+            $table->string('avatar_hash');
+
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
         });

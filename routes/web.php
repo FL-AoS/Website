@@ -1,14 +1,13 @@
 <?php
 
-use App\Http\Controllers\HighscoreController;
 use App\Http\Controllers\DiscordController;
-use App\Http\Controllers\PlayerController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\LeaderboardController;
-use App\Http\Controllers\RunController;
 use App\Http\Controllers\DownloadsController;
+use App\Http\Controllers\HighscoreController;
+use App\Http\Controllers\LeaderboardController;
+use App\Http\Controllers\PlayerController;
+use App\Http\Controllers\RunController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
     return view('home');
