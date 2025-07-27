@@ -4,3 +4,8 @@ body {
 	font-family: "Inter", serif;
 	font-style: normal;
 }
+
+#loading_animation {
+	position: absolute;
+	left: 27vw;
+}
