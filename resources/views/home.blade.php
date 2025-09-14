@@ -30,6 +30,10 @@
 		</table>
 	</div>
 
+	@if(!isset(auth()->user()->player_id))
+		@include("user_config")
+	@endif
+
 	<script type="text/javascript">
 		loadCurrentHighscore();
 
