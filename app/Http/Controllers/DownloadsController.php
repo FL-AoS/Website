@@ -15,6 +15,6 @@ class DownloadsController
             return response()->download($file);
         }
 
-        return 'You should be login to download files.';
+        return 'You should be logged in to download files.';
     }
 }
