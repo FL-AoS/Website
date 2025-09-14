@@ -7,6 +7,9 @@ use App\Http\Controllers\LeaderboardController;
 use App\Http\Controllers\PlayerController;
 use App\Http\Controllers\RunController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\GameServerController;
+use App\Http\Middleware\GameServerToken;
+use App\Http\Middleware\JsonOnly;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -34,4 +37,6 @@ Route::prefix('/api')->group(function () {
     Route::get('/discord/authorization', [DiscordController::class, 'authorize']);
 
     Route::post('/update_login', [PlayerController::class, 'update_infos']);
+
+    Route::post('/server/login/validate', [GameServerController::class, 'validate_login'])->middleware([JsonOnly::class, GameServerToken::class]);
 });
