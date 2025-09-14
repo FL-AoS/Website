@@ -7,6 +7,7 @@
 	<title></title>
 </head>
 <body>
+	@auth
 	<div id="config_menu">
 		@if(!isset(auth()->user()->player_id))
 			<style>#config_menu {display: block}</style>
@@ -51,5 +52,6 @@
 				cfg_pwd.type = "password"
 		}
 	</script>
+	@endauth
 </body>
 </html>
