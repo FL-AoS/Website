@@ -42,7 +42,6 @@
 
 		@if(isset(auth()->user()->player_id))
 			cfg_log.value = "{{auth()->user()->player->login}}";
-			cfg_pwd.value = "{{auth()->user()->player->password}}";
 		@endif
 
 		function showpassword() {

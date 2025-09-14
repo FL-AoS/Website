@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Player;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class PlayerController
 {
@@ -28,7 +29,7 @@ class PlayerController
 
             $player_m = new Player;
             $player_m->login = $validated['login'];
-            $player_m->password = $validated['password'];
+            $player_m->password = Hash::make($validated['password']);
 
             $player_m->save();
 
@@ -42,7 +43,7 @@ class PlayerController
             }
 
             Auth::user()->player->login = $validated['login'];
-            Auth::user()->player->password = $validated['password'];
+            Auth::user()->player->password = Hash::make($validated['password']);
             Auth::user()->player->save();
         }
 
