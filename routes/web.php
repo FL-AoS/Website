@@ -38,5 +38,6 @@ Route::prefix('/api')->group(function () {
 
     Route::post('/update_login', [PlayerController::class, 'update_infos']);
 
-    Route::post('/server/login/validate', [GameServerController::class, 'validate_login'])->middleware([JsonOnly::class, GameServerToken::class]);
+    Route::get('/server/login/validate', [GameServerController::class, 'validate_login'])->middleware([JsonOnly::class, GameServerToken::class]);
+    Route::post('/server/highscores/upload', [GameServerController::class, 'validate_highscore'])->middleware([JsonOnly::class, GameServerToken::class]);
 });

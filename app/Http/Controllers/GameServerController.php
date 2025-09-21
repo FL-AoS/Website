@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CheckpointHistory;
 use App\Models\Player;
+use App\Models\Map;
+use App\Models\RunHistory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
@@ -31,5 +34,56 @@ class GameServerController
         $player->save();
 
         return $player->toJson();
+    }
+
+    /**
+     * {
+        * mode: <>,
+        * player_id: <>,
+        * map_id: <>,
+        * demo_name: <>,
+        * client_info: <>,
+        * time: <>,
+        * death_count: <>,
+        * checkpoints: [
+        *   {checkpoint_number: <>, time: <>},
+        *   {checkpoint_number: <>, time: <>},
+        *   ...
+        * ]
+     * }
+    */
+    public function validate_highscore(Request $request) {
+        $data = $request->json()->all();
+
+        // for now we only support parkour for highscores
+        if ($data["mode"] != "parkour")
+            return 404;
+
+        $player = Player::where("id", $data["player_id"])->First();
+        if (is_null($player))
+            return 401;
+
+        $map = Map::where("id", $data["map_id"])->First();
+        if (is_null($map))
+            return 404;
+
+        $run_h = new RunHistory;
+        $run_h->player_id = $data["player_id"];
+        $run_h->map_id = $data["map_id"];
+        $run_h->demo_name = $data["demo_name"];
+        $run_h->client_info = $data["client_info"];
+        $run_h->time = $data["time"];
+        $run_h->death_count = $data["death_count"];
+        $run_h->save();
+
+        foreach ($data["checkpoints"] as $obj) {
+            $cp_h = new CheckpointHistory;
+            $cp_h->run_id = $run_h->id;
+            $cp_h->checkpoint = $obj["checkpoint_number"];
+            $cp_h->time = $obj["time"];
+            $cp_h->save();
+        }
+
+        return 201;
     }
 }
