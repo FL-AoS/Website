@@ -37,11 +37,14 @@ body {
 #recent_scores {
 	position: absolute;
 	width: 80vw;
+	height: 50vh;
 	top: 19vw;
 	left: 10vw;
 	border-width: 5vw;
 	border-top-width: 1vw;
 	border-top-color: white;
+	display: block;
+	overflow: auto;
 }
 
 #recent_scores table, th, td {
@@ -55,10 +58,15 @@ body {
 #recent_scores caption {
 	font-size: 1.5vw;
 	padding: 0.5vw 0vw;
+	position: sticky;
 }
 
 #recent_scores table {
 	width: 80vw;
+}
+
+#recent_scores table th {
+
 }
 
 #recent_scores .date {
