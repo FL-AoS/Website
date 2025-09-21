@@ -15,7 +15,7 @@ class GameServerToken
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if ($request->bearerToken() != env("GAME_SERVER_TOKEN")) {
+        if ($request->bearerToken() != env('GAME_SERVER_TOKEN')) {
             return Response($request->bearerToken(), 401);
         }
 

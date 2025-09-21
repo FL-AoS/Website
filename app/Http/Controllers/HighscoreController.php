@@ -31,8 +31,15 @@ class HighscoreController
         return $query->makeHidden(['player_id', 'map_id']);
     }
 
-    public function getPlayerScoresByPlayerId(int $player_id)
+    public function getPlayerScoresByPlayerId(int $player_id, ?string $map_name = null)
     {
+        $map = null;
+        if (! is_null($map_name)) {
+            $map = Map::query()
+                ->where('name', '=', $map_name)
+                ->firstOrFail();
+        }
+
         $subquery = RunHistory::query()
             ->select([
                 '*',
@@ -42,8 +49,13 @@ class HighscoreController
         $query = RunHistory::query()->fromSub($subquery, 'sub')
             ->with('map:id,name,creator,description,type')
             ->with('player:id,login')
-            ->where('sub.player_id', '=', $player_id)
-            ->orderBy('sub.created_at', 'desc')
+            ->where('sub.player_id', '=', $player_id);
+
+        if (! is_null($map)) {
+            $query = $query->where('sub.map_id', $map->id);
+        }
+
+        $query = $query->orderBy('sub.created_at', 'desc')
             ->get();
 
         return $query->makeHidden(['player_id', 'map_id']);

@@ -15,7 +15,7 @@ class JsonOnly
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (!$request->expectsJson()) {
+        if (! $request->expectsJson()) {
             return response(['message' => 'Only JSON requests are allowed'], 406);
         }
 

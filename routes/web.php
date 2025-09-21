@@ -2,12 +2,12 @@
 
 use App\Http\Controllers\DiscordController;
 use App\Http\Controllers\DownloadsController;
+use App\Http\Controllers\GameServerController;
 use App\Http\Controllers\HighscoreController;
 use App\Http\Controllers\LeaderboardController;
 use App\Http\Controllers\PlayerController;
 use App\Http\Controllers\RunController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\GameServerController;
 use App\Http\Middleware\GameServerToken;
 use App\Http\Middleware\JsonOnly;
 use Illuminate\Support\Facades\Route;
@@ -29,6 +29,7 @@ Route::prefix('/api')->group(function () {
 
     Route::get('/highscores/{map_name}', [HighscoreController::class, 'getScoreByMapName']);
     Route::get('/highscores/player/{player_name}', [HighscoreController::class, 'getPlayerScoresByPlayerId']);
+    Route::get('/highscores/player/{player_name}/{map_name}', [HighscoreController::class, 'getPlayerScoresByPlayerId']);
 
     Route::get('/run/{run_id}', [RunController::class, 'getRunInfo']);
 
