@@ -93,4 +93,24 @@ class GameServerController
 
         return response("",201);
     }
+
+    public function validate_map(Request $request)
+    {
+        $data = $request->json()->all();
+
+        $check_map = Map::where('name',$data['name'])->First();
+        if (!is_null($check_map)) {
+            return $check_map->toJson();
+        }
+
+        $map = new Map;
+        $map->name = $data['name'];
+        $map->creator = $data['author'];
+        $map->description = $data['description'];
+        $map->type = $data['type'];
+        $map->checkpoints = $data['checkpoints'];
+        $map->save();
+
+        return $map->toJson();
+    }
 }

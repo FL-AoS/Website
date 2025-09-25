@@ -41,4 +41,5 @@ Route::prefix('/api')->group(function () {
 
     Route::get('/server/login/validate', [GameServerController::class, 'validate_login'])->middleware([JsonOnly::class, GameServerToken::class]);
     Route::post('/server/highscores/upload', [GameServerController::class, 'validate_highscore'])->middleware([JsonOnly::class, GameServerToken::class]);
+    Route::post('/server/map/create', [GameServerController::class, 'validate_map'])->middleware([JsonOnly::class, GameServerToken::class]);
 });
