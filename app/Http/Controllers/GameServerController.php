@@ -77,7 +77,7 @@ class GameServerController
         $run_h = new RunHistory;
         $run_h->player_id = $data['player_id'];
         $run_h->map_id = $data['map_id'];
-        $run_h->demo_name = $data['demo_name'];
+        $run_h->demo_url = $data['demo_name'];
         $run_h->client_info = $data['client_info'];
         $run_h->time = $data['time'];
         $run_h->death_count = $data['death_count'];
