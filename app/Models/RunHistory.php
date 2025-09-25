@@ -22,4 +22,10 @@ class RunHistory extends Model
     {
         return $this->hasMany(CheckpointHistory::class, 'run_id', 'id');
     }
+
+    // Too tricky, but works in eloquent, so thx(?)
+    public function run_info()
+    {
+        return $this->belongsTo(RunHistory::class, 'id', 'id');
+    }
 }
