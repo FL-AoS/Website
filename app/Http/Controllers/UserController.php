@@ -24,7 +24,7 @@ class UserController
             ->with('roles')
             ->get();
 
-        return $q->makeHidden(['player_id', 'discord_user_id']);
+        return $q->makeHidden(['player_id', 'discord_user_id'])[0];
     }
 
     public function getUserInfosByPlayerId(int $player_id)
@@ -35,7 +35,7 @@ class UserController
             ->with('discord_user:id,username,global_name,discord_id,avatar_hash')
             ->get();
 
-        return $q->makeHidden(['player_id', 'discord_user_id']);
+        return $q->makeHidden(['player_id', 'discord_user_id'])[0];
     }
 
     public function getUserInfosByPlayerName(string $player_name)
