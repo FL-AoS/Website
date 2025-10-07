@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Map;
 use App\Models\RunHistory;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\UserController;
 
 class HighscoreController
 {
@@ -29,6 +30,14 @@ class HighscoreController
             ->orderBy('time')
             ->groupBy('player_id')
             ->get();
+
+        foreach ($query as $entry) {
+            $uc = new UserController();
+            $user_obj = $uc->getUserInfosByPlayerId($entry["player"]["id"]);
+
+            if (!is_null($user_obj))
+                $entry["user"] = $user_obj;
+        }
 
         return $query->makeHidden(['player_id', 'map_id']);
     }

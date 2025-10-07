@@ -35,6 +35,9 @@ class UserController
             ->with('discord_user:id,username,global_name,discord_id,avatar_hash')
             ->get();
 
+        if (is_null($q) || count($q) <= 0)
+            return null;
+
         return $q->makeHidden(['player_id', 'discord_user_id'])[0];
     }
 
