@@ -66,11 +66,11 @@
 						let name = row.insertCell(-1);
 						let time = row.insertCell(-1);
 
-						let playerInfos = await getUserInfosByPlayerName(entry.player.login);
+						let userInfos = entry.user;
 
-						if (typeof playerInfos == "object" && playerInfos !== null) {
+						if (typeof userInfos == "object" && userInfos !== null) {
 							row.className = "clickable";
-							row.onclick = ()=>{window.location.href = "/profile/"+playerInfos.id};
+							row.onclick = ()=>{window.location.href = "/profile/"+userInfos.id};
 						}
 
 						pos.innerHTML = index+1;
