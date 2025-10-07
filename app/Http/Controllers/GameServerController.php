@@ -26,11 +26,11 @@ class GameServerController
         $player = Player::where('login', $validated['login'])->First();
 
         if (is_null($player)) {
-            return response("",401);
+            return response('', 401);
         }
 
         if (! Hash::check($validated['password'], $player->password)) {
-            return response("", 401);
+            return response('', 401);
         }
 
         $player->last_ip = $validated['ip'];
@@ -61,17 +61,17 @@ class GameServerController
 
         // for now we only support parkour for highscores
         if ($data['mode'] != 'parkour') {
-            return response("",404);
+            return response('', 404);
         }
 
         $player = Player::where('id', $data['player_id'])->First();
         if (is_null($player)) {
-            return response("",401);
+            return response('', 401);
         }
 
         $map = Map::where('id', $data['map_id'])->First();
         if (is_null($map)) {
-            return response("",404);
+            return response('', 404);
         }
 
         $run_h = new RunHistory;
@@ -91,15 +91,15 @@ class GameServerController
             $cp_h->save();
         }
 
-        return response("",201);
+        return response('', 201);
     }
 
     public function validate_map(Request $request)
     {
         $data = $request->json()->all();
 
-        $check_map = Map::where('name',$data['name'])->First();
-        if (!is_null($check_map)) {
+        $check_map = Map::where('name', $data['name'])->First();
+        if (! is_null($check_map)) {
             return $check_map->toJson();
         }
 
