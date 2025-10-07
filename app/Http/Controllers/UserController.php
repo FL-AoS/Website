@@ -40,7 +40,7 @@ class UserController
 
     public function getUserInfosByPlayerName(string $player_name)
     {
-        $p_id = Player::where('login', '=', $player_name);
+        $p_id = Player::where('login', '=', $player_name)->FirstOrFail();
 
         return $this->getUserInfosByPlayerId($p_id->id);
     }
