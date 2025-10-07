@@ -11,7 +11,7 @@
 
 	<script src="/js/api_requests.js"></script>
 	<script src="/js/utils.js"></script>
-	<title>a</title>
+	<title>FL Community | Home</title>
 </head>
 <body>
 	@include("navbar")

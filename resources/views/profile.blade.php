@@ -6,7 +6,7 @@
 	<link rel="stylesheet" type="text/css" href="/css/profile.css">
 	<script src="/js/api_requests.js"></script>
 	<script src="/js/utils.js"></script>
-	<title></title>
+	<title>FL Community | Profile</title>
 </head>
 <body>
 	@include("navbar")

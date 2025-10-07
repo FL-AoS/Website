@@ -3,13 +3,14 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title></title>
 
 	<link rel="stylesheet" type="text/css" href="/css/leaderboard.css">
 	<link rel="stylesheet" type="text/css" href="/css/highscore.css">
 
 	<script src="/js/api_requests.js"></script>
 	<script src="/js/utils.js"></script>
+
+	<title>FL Community | Leaderboard</title>
 </head>
 <body>
 	@include("navbar")
