@@ -47,7 +47,7 @@ class DiscordController
         $curl_i = curl_init('https://discord.com/api/oauth2/token');
         curl_setopt($curl_i, CURLOPT_POST, 1);
         curl_setopt($curl_i, CURLOPT_USERPWD, env('DISCORD_APP_ID').':'.env('DISCORD_APP_SECRET'));
-        curl_setopt($curl_i, CURLOPT_POSTFIELDS, 'grant_type=authorization_code&code='.$code.'&redirect_uri=http://localhost:8000/api/discord/authorization');
+        curl_setopt($curl_i, CURLOPT_POSTFIELDS, 'grant_type=authorization_code&code='.$code.'&redirect_uri='.env('DISCORD_REDIRECT_URI').'/api/discord/authorization');
         curl_setopt($curl_i, CURLOPT_HTTPHEADER, ['Content-Type: application/x-www-form-urlencoded']);
 
         curl_setopt($curl_i, CURLOPT_RETURNTRANSFER, true);
