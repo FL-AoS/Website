@@ -69,7 +69,15 @@
 
 				let date = new Date(score.created_at);
 
-				dt_c.innerHTML = `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`;
+				let day = date.getDate();
+				let month = date.getMonth()+1;
+
+				if (day < 10)
+					day = "0"+day;
+				if (month < 10)
+					month = "0"+month;
+
+				dt_c.innerHTML = `${day}/${month}/${date.getFullYear()}`;
 				pos_c.innerHTML = score.rank;
 				map_c.innerHTML = score.map.name;
 				deaths_c.innerHTML = score.death_count;
